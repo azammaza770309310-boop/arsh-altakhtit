@@ -66,3 +66,6 @@ _*.png
 _*.json
 qa_*.png
 qa_*.json
+
+# أسرار — لا تُرفع أبدًا
+/.secrets/

@@ -40,6 +40,10 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 async function getPrisma() {
+  // على Vercel بدون متغير DATABASE_URL: وضع "بدون قاعدة بيانات" — لا نحاول تشغيل Prisma أصلًا
+  if (!url) {
+    throw new Error("DATABASE_URL غير مضبوط — اللعبة تعمل بدون قاعدة بيانات مشتركة");
+  }
   if (!globalForPrisma.prisma) {
     const { PrismaClient } = await import("@prisma/client");
     globalForPrisma.prisma = new PrismaClient();
