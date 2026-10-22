@@ -1,0 +1,395 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-tajawal), "Tajawal", system-ui, sans-serif;
+  --font-mono: var(--font-tajawal);
+  --font-display: var(--font-amiri), "Amiri", serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-gold: #c9a227;
+  --color-gold-light: #e8c766;
+  --color-gold-pale: #f5e9c8;
+  --color-ink: #0b0e1d;
+  --color-ink-deep: #070912;
+}
+
+:root {
+  --radius: 1rem;
+  --background: #0b0e1d;
+  --foreground: #f3efe2;
+  --card: rgba(255, 255, 255, 0.045);
+  --card-foreground: #f3efe2;
+  --popover: #131730;
+  --popover-foreground: #f3efe2;
+  --primary: #c9a227;
+  --primary-foreground: #14101f;
+  --secondary: rgba(201, 162, 39, 0.14);
+  --secondary-foreground: #e8c766;
+  --muted: rgba(255, 255, 255, 0.07);
+  --muted-foreground: #a9a3b8;
+  --accent: rgba(201, 162, 39, 0.18);
+  --accent-foreground: #f5e9c8;
+  --destructive: #e5484d;
+  --border: rgba(201, 162, 39, 0.22);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: #c9a227;
+  --chart-1: #c9a227;
+  --chart-2: #6d5ba6;
+  --chart-3: #e8c766;
+  --chart-4: #3ecf8e;
+  --chart-5: #f5e9c8;
+  --sidebar: #10142a;
+  --sidebar-foreground: #f3efe2;
+  --sidebar-primary: #c9a227;
+  --sidebar-primary-foreground: #14101f;
+  --sidebar-accent: rgba(201, 162, 39, 0.18);
+  --sidebar-accent-foreground: #f5e9c8;
+  --sidebar-border: rgba(201, 162, 39, 0.22);
+  --sidebar-ring: #c9a227;
+}
+
+/* ━━━━━━━━━ الأساس الملكي ━━━━━━━━━ */
+
+.royal-app {
+  font-family: var(--font-tajawal), "Tajawal", system-ui, sans-serif;
+  background-color: #0b0e1d;
+  color: #f3efe2;
+  min-height: 100vh;
+}
+
+.font-display {
+  font-family: var(--font-amiri), "Amiri", serif;
+}
+
+/* نص ذهبي متدرج */
+.gold-text {
+  background: linear-gradient(115deg, #f5e9c8 0%, #e8c766 28%, #c9a227 52%, #f0d98c 74%, #f5e9c8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gold-shimmer 6s linear infinite;
+}
+
+@keyframes gold-shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* بطاقة زجاجية بإطار ذهبي */
+.glass-card {
+  position: relative;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: 1.25rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* حد ذهبي متدرج للبطاقات الفاخرة */
+.gold-frame {
+  position: relative;
+  border-radius: 1.4rem;
+  background: linear-gradient(160deg, rgba(28, 24, 48, 0.92), rgba(13, 15, 32, 0.96));
+}
+
+.gold-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, rgba(245, 233, 200, 0.75), rgba(201, 162, 39, 0.35) 30%, rgba(109, 91, 166, 0.25) 55%, rgba(201, 162, 39, 0.6) 80%, rgba(245, 233, 200, 0.75));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* زر ذهبي فاخر مع لمعة */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #e8c766 0%, #c9a227 55%, #a9861d 100%);
+  color: #191228;
+  font-weight: 800;
+  border-radius: 0.9rem;
+  box-shadow: 0 10px 30px rgba(201, 162, 39, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-gold:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.07);
+  box-shadow: 0 16px 40px rgba(201, 162, 39, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.btn-gold:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -80%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+  transform: skewX(-20deg);
+  animation: sweep 3.2s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0%, 55% {
+    right: -80%;
+  }
+  85%, 100% {
+    right: 140%;
+  }
+}
+
+/* زر شبحي أنيق */
+.btn-ghost-gold {
+  border: 1px solid rgba(201, 162, 39, 0.4);
+  color: #e8c766;
+  background: rgba(201, 162, 39, 0.07);
+  border-radius: 0.9rem;
+  transition: all 0.18s ease;
+}
+
+.btn-ghost-gold:hover:not(:disabled) {
+  background: rgba(201, 162, 39, 0.16);
+  border-color: rgba(232, 199, 102, 0.7);
+  transform: translateY(-1px);
+}
+
+/* خلفية الأورورا الملكية */
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 55% 40% at 85% 8%, rgba(109, 91, 166, 0.22), transparent 60%),
+    radial-gradient(ellipse 45% 35% at 12% 88%, rgba(201, 162, 39, 0.14), transparent 60%),
+    radial-gradient(ellipse 50% 45% at 50% 45%, rgba(35, 27, 75, 0.5), transparent 70%),
+    linear-gradient(180deg, #0b0e1d 0%, #090b18 50%, #070912 100%);
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+.aurora-blob-1 {
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -140px;
+  background: rgba(109, 91, 166, 0.35);
+}
+
+.aurora-blob-2 {
+  width: 380px;
+  height: 380px;
+  left: -110px;
+  bottom: -120px;
+  background: rgba(201, 162, 39, 0.22);
+  animation-delay: -7s;
+}
+
+.aurora-blob-3 {
+  width: 300px;
+  height: 300px;
+  left: 30%;
+  top: -160px;
+  background: rgba(62, 90, 166, 0.16);
+  animation-delay: -12s;
+}
+
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(50px, 35px) scale(1.12);
+  }
+}
+
+/* نجوم متلألئة */
+.star {
+  position: absolute;
+  border-radius: 50%;
+  background: #f5e9c8;
+  animation: twinkle var(--tw-dur, 4s) ease-in-out infinite;
+  animation-delay: var(--tw-delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.25);
+  }
+}
+
+/* ظهور وانزياح */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(14px);
+  }
+  60% {
+    transform: scale(1.015) translateY(-2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.pop-in {
+  animation: pop-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slide-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* اهتزاز الخطأ */
+@keyframes shake {
+  10%, 90% { transform: translateX(-2px); }
+  20%, 80% { transform: translateX(4px); }
+  30%, 50%, 70% { transform: translateX(-6px); }
+  40%, 60% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: shake 0.5s ease both;
+}
+
+/* نبض ذهبي */
+@keyframes pulse-gold {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 26px 6px rgba(201, 162, 39, 0.28);
+  }
+}
+
+.pulse-gold {
+  animation: pulse-gold 2.2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.22); }
+  50% { transform: scale(0.96); }
+}
+
+.heartbeat {
+  animation: heartbeat 1.2s ease-in-out;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+.float-soft {
+  animation: float-soft 4.5s ease-in-out infinite;
+}
+
+/* فاصل زخرفي */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(201, 162, 39, 0.7);
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to left, transparent, rgba(201, 162, 39, 0.55), transparent);
+}
+
+/* شريط تمرير ملكي */
+.royal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.royal-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+}
+
+.royal-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c9a227, #8a6d1a);
+  border-radius: 8px;
+}
+
+/* أرقام عربية بخط العرض */
+.numeric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}

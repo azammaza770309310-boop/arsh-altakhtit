@@ -1,0 +1,68 @@
+# dependencies
+node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# production
+/build
+
+# env — أسرارك ما تنرفع أبدًا
+.env
+.env*.local
+
+# database (SQLite محلية)
+/db/
+*.db
+*.db-journal
+
+# misc
+.DS_Store
+*.pem
+*.log
+dev.log
+server.log
+
+# vercel
+.vercel
+
+# مجلدات البيئة الرملية الخاصة بالمشروع الأصلي — ليست جزءًا من اللعبة
+/download/
+/scripts/
+/textbook/
+/upload/
+/archive/
+/new_task/
+/qa_05b/
+/skills/
+/examples/
+/tests/
+/tessdata/
+/agent-ctx/
+/.zscripts/
+/mini-services/
+Caddyfile
+worklog.md
+package.json.bak
+bun.lock.bak
+prompt
+local-*
+.claude
+.z-ai-config
+_*.png
+_*.json
+qa_*.png
+qa_*.json
